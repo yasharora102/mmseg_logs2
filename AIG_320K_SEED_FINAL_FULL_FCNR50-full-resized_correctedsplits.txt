@@ -2175,3 +2175,89 @@ Did not find last_checkpoint to be resumed.
 09/29 01:50:44 - mmengine - INFO - Iter(train) [ 79250/320000]  lr: 7.7632e-03  eta: 1 day, 10:18:55  time: 0.5154  data_time: 0.0056  memory: 5546  loss: 0.1336  decode.loss_ce: 0.0735  decode.acc_seg: 98.2314  aux.loss_ce: 0.0601  aux.acc_seg: 95.7184
 09/29 01:51:10 - mmengine - INFO - Iter(train) [ 79300/320000]  lr: 7.7618e-03  eta: 1 day, 10:18:30  time: 0.5156  data_time: 0.0056  memory: 5545  loss: 0.2068  decode.loss_ce: 0.1117  decode.acc_seg: 98.5120  aux.loss_ce: 0.0951  aux.acc_seg: 96.2002
 09/29 01:51:36 - mmengine - INFO - Iter(train) [ 79350/320000]  lr: 7.7604e-03  eta: 1 day, 10:18:05  time: 0.5153  data_time: 0.0055  memory: 5546  loss: 0.2770  decode.loss_ce: 0.1722  decode.acc_seg: 98.6674  aux.loss_ce: 0.1048  aux.acc_seg: 96.6536
+09/29 01:52:02 - mmengine - INFO - Iter(train) [ 79400/320000]  lr: 7.7589e-03  eta: 1 day, 10:17:39  time: 0.5147  data_time: 0.0056  memory: 5545  loss: 0.2111  decode.loss_ce: 0.1253  decode.acc_seg: 98.6976  aux.loss_ce: 0.0858  aux.acc_seg: 98.4337
+09/29 01:52:27 - mmengine - INFO - Iter(train) [ 79450/320000]  lr: 7.7575e-03  eta: 1 day, 10:17:14  time: 0.5153  data_time: 0.0055  memory: 5546  loss: 0.3924  decode.loss_ce: 0.2510  decode.acc_seg: 72.6481  aux.loss_ce: 0.1415  aux.acc_seg: 66.2568
+09/29 01:52:53 - mmengine - INFO - Iter(train) [ 79500/320000]  lr: 7.7561e-03  eta: 1 day, 10:16:48  time: 0.5155  data_time: 0.0056  memory: 5545  loss: 0.4566  decode.loss_ce: 0.3155  decode.acc_seg: 90.6611  aux.loss_ce: 0.1411  aux.acc_seg: 91.6409
+09/29 01:53:19 - mmengine - INFO - Iter(train) [ 79550/320000]  lr: 7.7546e-03  eta: 1 day, 10:16:23  time: 0.5151  data_time: 0.0056  memory: 5546  loss: 0.4004  decode.loss_ce: 0.2480  decode.acc_seg: 98.7170  aux.loss_ce: 0.1524  aux.acc_seg: 98.2743
+09/29 01:53:45 - mmengine - INFO - Iter(train) [ 79600/320000]  lr: 7.7532e-03  eta: 1 day, 10:15:58  time: 0.5152  data_time: 0.0057  memory: 5545  loss: 0.2319  decode.loss_ce: 0.1353  decode.acc_seg: 81.2229  aux.loss_ce: 0.0966  aux.acc_seg: 81.9601
+09/29 01:54:10 - mmengine - INFO - Iter(train) [ 79650/320000]  lr: 7.7518e-03  eta: 1 day, 10:15:32  time: 0.5149  data_time: 0.0056  memory: 5545  loss: 0.1479  decode.loss_ce: 0.0826  decode.acc_seg: 98.0498  aux.loss_ce: 0.0654  aux.acc_seg: 94.9954
+09/29 01:54:36 - mmengine - INFO - Iter(train) [ 79700/320000]  lr: 7.7503e-03  eta: 1 day, 10:15:07  time: 0.5145  data_time: 0.0057  memory: 5545  loss: 0.2143  decode.loss_ce: 0.1452  decode.acc_seg: 94.3541  aux.loss_ce: 0.0691  aux.acc_seg: 93.8900
+09/29 01:55:02 - mmengine - INFO - Iter(train) [ 79750/320000]  lr: 7.7489e-03  eta: 1 day, 10:14:41  time: 0.5146  data_time: 0.0056  memory: 5545  loss: 0.3073  decode.loss_ce: 0.1844  decode.acc_seg: 83.0116  aux.loss_ce: 0.1229  aux.acc_seg: 82.9081
+09/29 01:55:28 - mmengine - INFO - Iter(train) [ 79800/320000]  lr: 7.7475e-03  eta: 1 day, 10:14:16  time: 0.5144  data_time: 0.0056  memory: 5546  loss: 0.2739  decode.loss_ce: 0.1869  decode.acc_seg: 63.6106  aux.loss_ce: 0.0870  aux.acc_seg: 71.2299
+09/29 01:55:53 - mmengine - INFO - Iter(train) [ 79850/320000]  lr: 7.7460e-03  eta: 1 day, 10:13:51  time: 0.5145  data_time: 0.0057  memory: 5546  loss: 0.3009  decode.loss_ce: 0.1962  decode.acc_seg: 96.2699  aux.loss_ce: 0.1047  aux.acc_seg: 95.8125
+09/29 01:56:19 - mmengine - INFO - Iter(train) [ 79900/320000]  lr: 7.7446e-03  eta: 1 day, 10:13:25  time: 0.5141  data_time: 0.0056  memory: 5546  loss: 0.1213  decode.loss_ce: 0.0640  decode.acc_seg: 99.1093  aux.loss_ce: 0.0573  aux.acc_seg: 98.7016
+09/29 01:56:45 - mmengine - INFO - Iter(train) [ 79950/320000]  lr: 7.7432e-03  eta: 1 day, 10:12:59  time: 0.5140  data_time: 0.0056  memory: 5545  loss: 0.2606  decode.loss_ce: 0.1705  decode.acc_seg: 90.4294  aux.loss_ce: 0.0901  aux.acc_seg: 85.1384
+09/29 01:57:11 - mmengine - INFO - Exp name: fcn_r50-d8_4xb2-80k_MYDATA-512x1024_20250928_143128
+09/29 01:57:11 - mmengine - INFO - Iter(train) [ 80000/320000]  lr: 7.7417e-03  eta: 1 day, 10:12:34  time: 0.5134  data_time: 0.0055  memory: 5545  loss: 0.1784  decode.loss_ce: 0.1103  decode.acc_seg: 98.5975  aux.loss_ce: 0.0681  aux.acc_seg: 97.9556
+09/29 01:57:11 - mmengine - INFO - Saving checkpoint at 80000 iterations
+09/29 01:57:24 - mmengine - INFO - Iter(val) [ 50/204]    eta: 0:00:35  time: 0.2520  data_time: 0.0048  memory: 1454  
+09/29 01:57:36 - mmengine - INFO - Iter(val) [100/204]    eta: 0:00:25  time: 0.2530  data_time: 0.0050  memory: 1454  
+09/29 01:57:49 - mmengine - INFO - Iter(val) [150/204]    eta: 0:00:13  time: 0.2529  data_time: 0.0050  memory: 1454  
+09/29 01:58:01 - mmengine - INFO - Iter(val) [200/204]    eta: 0:00:00  time: 0.2522  data_time: 0.0043  memory: 1454  
+09/29 01:58:02 - mmengine - INFO - per class results:
+09/29 01:58:02 - mmengine - INFO - 
++---------------------+-------+-------+
+|        Class        |  IoU  |  Acc  |
++---------------------+-------+-------+
+|      background     | 98.45 |  99.6 |
+|   beetroot poriyal  |  1.19 |  1.19 |
+|        bhindi       | 15.14 | 18.23 |
+| capsicum green peas | 49.64 | 67.63 |
+|     dosakay dal     | 25.48 | 48.73 |
+|    dosakaya curry   |  5.18 |  5.2  |
+|    jaipuri sabji    | 86.21 | 94.14 |
+|  ladiesfinger curry | 96.51 | 97.01 |
+|    lobiya masala    | 85.04 | 92.74 |
+|        pongal       |  0.0  |  0.0  |
+|    pumpkin gravy    |  56.9 | 88.76 |
+|     pumpkin dry     |  5.38 |  5.48 |
+|     rajma masala    | 93.89 | 98.29 |
+|      tomato dal     | 36.95 | 51.12 |
+|     turai moong     | 48.56 | 73.07 |
+|     turai tomato    | 23.84 | 27.31 |
+|    beerakay curry   |  61.2 | 79.65 |
+|   cabbage poriyal   | 94.88 |  96.6 |
+|    capsicum gravy   | 25.13 | 26.54 |
+|     chana masala    | 62.33 |  95.8 |
+|       chapathi      | 79.42 | 98.04 |
+|      chow-chow      | 70.86 | 72.64 |
+|       chutney       |  0.0  |  0.0  |
+|      curd rice      | 84.23 | 85.11 |
+|         dal         | 58.75 | 60.27 |
+|      dal tadka      | 76.06 | 97.78 |
+|        daliya       | 10.93 | 11.45 |
+|     daliya upma     | 35.38 | 96.72 |
+|     donda curry     | 74.84 | 96.79 |
+|    dosakaya gravy   | 59.53 | 64.07 |
+|      egg white      | 88.95 | 93.52 |
+|         idly        |  0.0  |  0.0  |
+|       khichdi       |  7.72 |  8.38 |
+| ladies finger gravy | 72.94 | 73.41 |
+|      methi dal      | 71.24 | 95.18 |
+|  mixed veg poriyal  |  90.0 | 91.18 |
+|   palak soya curry  | 87.92 | 88.63 |
+|     paneer gravy    | 70.03 | 95.18 |
+|         poha        |  0.0  |  0.0  |
+|    pumpkin masala   | 79.79 | 97.02 |
+|    raw banana dry   |  87.8 | 96.75 |
+|         rice        |  84.7 | 96.69 |
+|         roti        |  0.01 |  0.01 |
+|        sambar       | 38.02 | 57.74 |
+|    snakegourd dry   | 15.04 | 91.51 |
+|   snakeguard curry  | 82.53 | 90.94 |
+|      soya gravy     |  0.02 |  0.02 |
+|   thotakura pappu   | 78.01 | 88.23 |
+|         upma        |  4.15 |  4.15 |
+|       uttapam       |  1.98 |  1.98 |
++---------------------+-------+-------+
+09/29 01:58:02 - mmengine - INFO - Iter(val) [204/204]    aAcc: 94.4400  mIoU: 49.6500  mAcc: 60.4100  data_time: 0.0052  time: 0.2480
+09/29 01:58:02 - mmengine - INFO - The previous best checkpoint /scratch/weight-est/WEIGHT_NEW_CORRECT/FCN_R50-resized_320K/best_mIoU_iter_40000.pth is removed
+09/29 01:58:03 - mmengine - INFO - The best checkpoint with 49.6500 mIoU at 80000 iter is saved to best_mIoU_iter_80000.pth.
+09/29 01:58:33 - mmengine - INFO - Iter(train) [ 80050/320000]  lr: 7.7403e-03  eta: 1 day, 10:12:23  time: 0.5117  data_time: 0.0056  memory: 5546  loss: 0.3212  decode.loss_ce: 0.2254  decode.acc_seg: 79.7255  aux.loss_ce: 0.0959  aux.acc_seg: 80.7672
+09/29 01:58:59 - mmengine - INFO - Iter(train) [ 80100/320000]  lr: 7.7389e-03  eta: 1 day, 10:11:57  time: 0.5131  data_time: 0.0055  memory: 5545  loss: 0.1680  decode.loss_ce: 0.0877  decode.acc_seg: 98.4427  aux.loss_ce: 0.0802  aux.acc_seg: 98.0031
+09/29 01:59:24 - mmengine - INFO - Iter(train) [ 80150/320000]  lr: 7.7374e-03  eta: 1 day, 10:11:31  time: 0.5134  data_time: 0.0054  memory: 5545  loss: 0.1893  decode.loss_ce: 0.1165  decode.acc_seg: 98.2049  aux.loss_ce: 0.0728  aux.acc_seg: 97.5078
+09/29 01:59:50 - mmengine - INFO - Iter(train) [ 80200/320000]  lr: 7.7360e-03  eta: 1 day, 10:11:06  time: 0.5137  data_time: 0.0055  memory: 5545  loss: 0.2239  decode.loss_ce: 0.1212  decode.acc_seg: 98.6367  aux.loss_ce: 0.1027  aux.acc_seg: 98.4013
+09/29 02:00:16 - mmengine - INFO - Iter(train) [ 80250/320000]  lr: 7.7346e-03  eta: 1 day, 10:10:40  time: 0.5139  data_time: 0.0054  memory: 5546  loss: 0.2485  decode.loss_ce: 0.1472  decode.acc_seg: 98.4698  aux.loss_ce: 0.1013  aux.acc_seg: 96.5952
+09/29 02:00:41 - mmengine - INFO - Iter(train) [ 80300/320000]  lr: 7.7331e-03  eta: 1 day, 10:10:14  time: 0.5143  data_time: 0.0053  memory: 5545  loss: 0.2643  decode.loss_ce: 0.1551  decode.acc_seg: 98.1861  aux.loss_ce: 0.1092  aux.acc_seg: 97.8357
+09/29 02:01:07 - mmengine - INFO - Iter(train) [ 80350/320000]  lr: 7.7317e-03  eta: 1 day, 10:09:49  time: 0.5145  data_time: 0.0054  memory: 5546  loss: 0.1880  decode.loss_ce: 0.1060  decode.acc_seg: 91.6696  aux.loss_ce: 0.0820  aux.acc_seg: 91.7799
+09/29 02:01:33 - mmengine - INFO - Iter(train) [ 80400/320000]  lr: 7.7303e-03  eta: 1 day, 10:09:23  time: 0.5136  data_time: 0.0053  memory: 5545  loss: 0.2116  decode.loss_ce: 0.1203  decode.acc_seg: 98.2091  aux.loss_ce: 0.0913  aux.acc_seg: 95.9753
