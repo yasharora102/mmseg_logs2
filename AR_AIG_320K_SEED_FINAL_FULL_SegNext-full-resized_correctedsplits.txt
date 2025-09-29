@@ -1017,3 +1017,4 @@ unexpected key in source state_dict: head.weight, head.bias
 09/29 23:31:45 - mmengine - WARNING - "HardDiskBackend" is the alias of "LocalBackend" and the former will be deprecated in future.
 09/29 23:31:45 - mmengine - INFO - Checkpoints will be saved to /scratch/segmentation_benchmark/mmseg_work_dir/AR_segnext_l-resized_seed_320K.
 09/29 23:44:29 - mmengine - INFO - Iter(train) [    50/320000]  base_lr: 9.8039e-07 lr: 9.8039e-07  eta: 56 days, 15:24:51  time: 15.0361  data_time: 0.0180  loss: 3.1753  decode.loss_ce: 3.1753  decode.acc_seg: 68.0602
+09/29 23:57:06 - mmengine - INFO - Iter(train) [   100/320000]  base_lr: 1.9807e-06 lr: 1.9807e-06  eta: 56 days, 8:21:51  time: 15.2582  data_time: 0.0329  loss: 2.5646  decode.loss_ce: 2.5646  decode.acc_seg: 51.3221
