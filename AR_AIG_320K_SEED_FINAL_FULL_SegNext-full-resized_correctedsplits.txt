@@ -1,0 +1,1018 @@
+/home2/yasharora120/miniconda3/envs/mmseg/lib/python3.9/site-packages/torch/cuda/__init__.py:138: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW (Triggered internally at /opt/conda/conda-bld/pytorch_1702400441250/work/c10/cuda/CUDAFunctions.cpp:108.)
+  return torch._C._cuda_getDeviceCount() > 0
+09/29 23:31:35 - mmengine - INFO - 
+------------------------------------------------------------
+System environment:
+    sys.platform: linux
+    Python: 3.9.23 (main, Jun  5 2025, 13:40:20) [GCC 11.2.0]
+    CUDA available: False
+    MUSA available: False
+    numpy_random_seed: 268722126
+    GCC: gcc (Ubuntu 11.4.0-1ubuntu1~22.04.2) 11.4.0
+    PyTorch: 2.1.2
+    PyTorch compiling details: PyTorch built with:
+  - GCC 9.3
+  - C++ Version: 201703
+  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v3.1.1 (Git Hash 64f6bcbcbab628e96f33a62c3e975f8535a7bde4)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.8, CUDNN_VERSION=8.7.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=old-style-cast -Wno-invalid-partial-specialization -Wno-unused-private-field -Wno-aligned-allocation-unavailable -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Werror=cast-function-type -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_DISABLE_GPU_ASSERTS=ON, TORCH_VERSION=2.1.2, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, 
+
+    TorchVision: 0.16.2
+    OpenCV: 4.11.0
+    MMEngine: 0.10.7
+
+Runtime environment:
+    cudnn_benchmark: True
+    mp_cfg: {'mp_start_method': 'fork', 'opencv_num_threads': 0}
+    dist_cfg: {'backend': 'nccl'}
+    seed: 268722126
+    Distributed launcher: none
+    Distributed training: False
+    GPU number: 1
+------------------------------------------------------------
+
+09/29 23:31:35 - mmengine - INFO - Config:
+checkpoint_file = 'https://download.openmmlab.com/mmsegmentation/v0.5/pretrain/segnext/mscan_l_20230227-cef260d4.pth'
+crop_size = (
+    512,
+    1024,
+)
+data_preprocessor = dict(
+    bgr_to_rgb=True,
+    mean=[
+        123.675,
+        116.28,
+        103.53,
+    ],
+    pad_val=0,
+    seg_pad_val=255,
+    size=(
+        512,
+        1024,
+    ),
+    std=[
+        58.395,
+        57.12,
+        57.375,
+    ],
+    test_cfg=dict(size_divisor=32),
+    type='SegDataPreProcessor')
+data_root = '/scratch/segmentation_benchmark/food_FINAL_resized/'
+dataset_type = 'YourDataset_BIG'
+default_hooks = dict(
+    checkpoint=dict(
+        by_epoch=False,
+        interval=40000,
+        save_best='mIoU',
+        type='CheckpointHook'),
+    logger=dict(interval=50, log_metric_by_epoch=False, type='LoggerHook'),
+    param_scheduler=dict(type='ParamSchedulerHook'),
+    sampler_seed=dict(type='DistSamplerSeedHook'),
+    timer=dict(type='IterTimerHook'),
+    visualization=dict(type='SegVisualizationHook'))
+default_scope = 'mmseg'
+env_cfg = dict(
+    cudnn_benchmark=True,
+    dist_cfg=dict(backend='nccl'),
+    mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0))
+ham_norm_cfg = dict(num_groups=32, requires_grad=True, type='GN')
+img_ratios = [
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+]
+img_suffix = '.jpg'
+launcher = 'none'
+load_from = None
+log_level = 'INFO'
+log_processor = dict(by_epoch=False)
+model = dict(
+    backbone=dict(
+        act_cfg=dict(type='GELU'),
+        attention_kernel_paddings=[
+            2,
+            [
+                0,
+                3,
+            ],
+            [
+                0,
+                5,
+            ],
+            [
+                0,
+                10,
+            ],
+        ],
+        attention_kernel_sizes=[
+            5,
+            [
+                1,
+                7,
+            ],
+            [
+                1,
+                11,
+            ],
+            [
+                1,
+                21,
+            ],
+        ],
+        depths=[
+            3,
+            5,
+            27,
+            3,
+        ],
+        drop_path_rate=0.3,
+        drop_rate=0.0,
+        embed_dims=[
+            64,
+            128,
+            320,
+            512,
+        ],
+        init_cfg=dict(
+            checkpoint=
+            'https://download.openmmlab.com/mmsegmentation/v0.5/pretrain/segnext/mscan_l_20230227-cef260d4.pth',
+            type='Pretrained'),
+        mlp_ratios=[
+            8,
+            8,
+            4,
+            4,
+        ],
+        norm_cfg=dict(requires_grad=True, type='BN'),
+        type='MSCAN'),
+    data_preprocessor=dict(
+        bgr_to_rgb=True,
+        mean=[
+            123.675,
+            116.28,
+            103.53,
+        ],
+        pad_val=0,
+        seg_pad_val=255,
+        size=(
+            512,
+            1024,
+        ),
+        std=[
+            58.395,
+            57.12,
+            57.375,
+        ],
+        test_cfg=dict(size_divisor=32),
+        type='SegDataPreProcessor'),
+    decode_head=dict(
+        align_corners=False,
+        channels=1024,
+        dropout_ratio=0.1,
+        ham_channels=1024,
+        ham_kwargs=dict(
+            MD_R=16,
+            MD_S=1,
+            eval_steps=7,
+            inv_t=100,
+            rand_init=True,
+            train_steps=6),
+        in_channels=[
+            128,
+            320,
+            512,
+        ],
+        in_index=[
+            1,
+            2,
+            3,
+        ],
+        loss_decode=dict(
+            loss_weight=1.0, type='CrossEntropyLoss', use_sigmoid=False),
+        norm_cfg=dict(num_groups=32, requires_grad=True, type='GN'),
+        num_classes=49,
+        type='LightHamHead'),
+    pretrained=None,
+    test_cfg=dict(mode='whole'),
+    train_cfg=dict(),
+    type='EncoderDecoder')
+optim_wrapper = dict(
+    optimizer=dict(
+        betas=(
+            0.9,
+            0.999,
+        ), lr=6e-05, type='AdamW', weight_decay=0.01),
+    paramwise_cfg=dict(
+        custom_keys=dict(
+            head=dict(lr_mult=10.0),
+            norm=dict(decay_mult=0.0),
+            pos_block=dict(decay_mult=0.0))),
+    type='OptimWrapper')
+optimizer = dict(lr=0.01, momentum=0.9, type='SGD', weight_decay=0.0005)
+param_scheduler = [
+    dict(
+        begin=0, by_epoch=False, end=3000, start_factor=1e-06,
+        type='LinearLR'),
+    dict(
+        begin=3000,
+        by_epoch=False,
+        end=320000,
+        eta_min=0.0,
+        power=1.0,
+        type='PolyLR'),
+]
+randomness = dict(seed=268722126)
+resume = False
+seg_map_suffix = '.png'
+test_cfg = dict(type='TestLoop')
+test_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        data_prefix=dict(img_path='test/images', seg_map_path='test/masks'),
+        data_root='/scratch/segmentation_benchmark/food_FINAL_resized/',
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(keep_ratio=True, scale=(
+                2048,
+                1024,
+            ), type='Resize'),
+            dict(type='LoadAnnotations'),
+            dict(type='PackSegInputs'),
+        ],
+        type='YourDataset_BIG'),
+    num_workers=8,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+test_evaluator = dict(
+    classwise=True, iou_metrics=[
+        'mIoU',
+    ], type='IoUNanAbsent')
+test_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(keep_ratio=True, scale=(
+        2048,
+        1024,
+    ), type='Resize'),
+    dict(type='LoadAnnotations'),
+    dict(type='PackSegInputs'),
+]
+train_cfg = dict(
+    max_iters=320000, type='IterBasedTrainLoop', val_interval=40000)
+train_dataloader = dict(
+    batch_size=2,
+    dataset=dict(
+        data_prefix=dict(img_path='train/images', seg_map_path='train/masks'),
+        data_root='/scratch/segmentation_benchmark/food_FINAL_resized/',
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(type='LoadAnnotations'),
+            dict(
+                keep_ratio=True,
+                ratio_range=(
+                    0.5,
+                    2.0,
+                ),
+                scale=(
+                    2048,
+                    1024,
+                ),
+                type='RandomResize'),
+            dict(
+                cat_max_ratio=0.75, crop_size=(
+                    512,
+                    1024,
+                ), type='RandomCrop'),
+            dict(prob=0.5, type='RandomFlip'),
+            dict(type='PhotoMetricDistortion'),
+            dict(type='PackSegInputs'),
+        ],
+        type='YourDataset_BIG'),
+    num_workers=2,
+    persistent_workers=True,
+    sampler=dict(shuffle=True, type='InfiniteSampler'))
+train_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(type='LoadAnnotations'),
+    dict(
+        keep_ratio=True,
+        ratio_range=(
+            0.5,
+            2.0,
+        ),
+        scale=(
+            2048,
+            1024,
+        ),
+        type='RandomResize'),
+    dict(cat_max_ratio=0.75, crop_size=(
+        512,
+        1024,
+    ), type='RandomCrop'),
+    dict(prob=0.5, type='RandomFlip'),
+    dict(type='PhotoMetricDistortion'),
+    dict(type='PackSegInputs'),
+]
+tta_model = dict(type='SegTTAModel')
+tta_pipeline = [
+    dict(backend_args=None, type='LoadImageFromFile'),
+    dict(
+        transforms=[
+            [
+                dict(keep_ratio=True, scale_factor=0.5, type='Resize'),
+                dict(keep_ratio=True, scale_factor=0.75, type='Resize'),
+                dict(keep_ratio=True, scale_factor=1.0, type='Resize'),
+                dict(keep_ratio=True, scale_factor=1.25, type='Resize'),
+                dict(keep_ratio=True, scale_factor=1.5, type='Resize'),
+                dict(keep_ratio=True, scale_factor=1.75, type='Resize'),
+            ],
+            [
+                dict(direction='horizontal', prob=0.0, type='RandomFlip'),
+                dict(direction='horizontal', prob=1.0, type='RandomFlip'),
+            ],
+            [
+                dict(type='LoadAnnotations'),
+            ],
+            [
+                dict(type='PackSegInputs'),
+            ],
+        ],
+        type='TestTimeAug'),
+]
+val_cfg = dict(type='ValLoop')
+val_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        data_prefix=dict(img_path='test/images', seg_map_path='test/masks'),
+        data_root='/scratch/segmentation_benchmark/food_FINAL_resized/',
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(keep_ratio=True, scale=(
+                2048,
+                1024,
+            ), type='Resize'),
+            dict(type='LoadAnnotations'),
+            dict(type='PackSegInputs'),
+        ],
+        type='YourDataset_BIG'),
+    num_workers=8,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+val_evaluator = dict(
+    iou_metrics=[
+        'mIoU',
+    ], type='IoUMetric')
+vis_backends = [
+    dict(type='LocalVisBackend'),
+]
+visualizer = dict(
+    name='visualizer',
+    type='SegLocalVisualizer',
+    vis_backends=[
+        dict(type='LocalVisBackend'),
+    ])
+work_dir = '/scratch/segmentation_benchmark/mmseg_work_dir/AR_segnext_l-resized_seed_320K'
+
+/home2/yasharora120/segmentation_benchmark/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:250: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+09/29 23:31:40 - mmengine - INFO - Distributed training is not used, all SyncBatchNorm (SyncBN) layers in the model will be automatically reverted to BatchNormXd layers if they are used.
+/home2/yasharora120/segmentation_benchmark/mmsegmentation/mmseg/engine/hooks/visualization_hook.py:60: UserWarning: The draw is False, it means that the hook for visualization will not take effect. The results will NOT be visualized or stored.
+  warnings.warn('The draw is False, it means that the '
+09/29 23:31:40 - mmengine - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+before_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DistSamplerSeedHook                
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) IterTimerHook                      
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_val_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_val_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) SegVisualizationHook               
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_val_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_test_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_test_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_test_iter:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) SegVisualizationHook               
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_run:
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.0.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.0.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.0.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.0.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.0.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.0.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.0.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.0.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.0.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.0.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.0.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.0.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.1.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.1.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.1.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.1.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.1.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.1.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.1.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.1.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.1.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.1.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.1.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.1.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.2.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.2.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.2.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.2.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.2.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.2.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.2.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.2.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.2.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.2.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.2.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block1.2.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed2.norm.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed2.norm.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed2.norm.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed2.norm.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed2.norm.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed2.norm.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.0.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.0.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.0.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.0.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.0.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.0.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.0.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.0.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.0.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.0.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.0.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.0.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.1.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.1.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.1.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.1.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.1.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.1.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.1.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.1.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.1.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.1.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.1.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.1.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.2.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.2.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.2.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.2.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.2.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.2.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.2.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.2.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.2.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.2.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.2.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.2.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.3.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.3.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.3.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.3.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.3.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.3.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.3.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.3.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.3.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.3.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.3.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.3.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.4.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.4.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.4.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.4.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.4.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.4.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.4.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.4.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.4.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.4.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.4.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block2.4.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed3.norm.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed3.norm.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed3.norm.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed3.norm.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed3.norm.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed3.norm.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.0.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.0.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.0.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.0.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.0.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.0.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.0.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.0.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.0.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.0.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.0.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.0.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.1.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.1.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.1.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.1.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.1.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.1.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.1.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.1.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.1.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.1.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.1.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.1.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.2.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.2.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.2.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.2.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.2.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.2.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.2.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.2.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.2.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.2.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.2.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.2.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.3.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.3.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.3.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.3.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.3.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.3.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.3.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.3.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.3.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.3.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.3.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.3.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.4.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.4.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.4.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.4.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.4.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.4.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.4.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.4.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.4.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.4.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.4.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.4.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.5.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.5.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.5.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.5.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.5.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.5.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.5.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.5.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.5.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.5.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.5.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.5.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.6.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.6.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.6.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.6.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.6.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.6.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.6.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.6.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.6.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.6.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.6.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.6.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.7.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.7.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.7.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.7.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.7.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.7.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.7.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.7.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.7.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.7.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.7.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.7.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.8.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.8.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.8.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.8.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.8.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.8.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.8.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.8.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.8.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.8.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.8.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.8.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.9.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.9.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.9.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.9.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.9.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.9.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.9.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.9.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.9.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.9.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.9.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.9.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.10.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.10.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.10.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.10.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.10.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.10.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.10.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.10.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.10.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.10.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.10.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.10.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.11.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.11.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.11.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.11.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.11.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.11.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.11.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.11.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.11.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.11.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.11.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.11.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.12.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.12.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.12.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.12.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.12.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.12.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.12.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.12.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.12.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.12.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.12.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.12.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.13.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.13.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.13.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.13.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.13.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.13.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.13.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.13.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.13.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.13.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.13.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.13.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.14.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.14.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.14.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.14.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.14.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.14.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.14.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.14.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.14.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.14.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.14.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.14.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.15.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.15.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.15.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.15.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.15.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.15.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.15.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.15.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.15.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.15.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.15.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.15.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.16.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.16.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.16.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.16.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.16.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.16.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.16.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.16.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.16.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.16.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.16.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.16.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.17.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.17.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.17.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.17.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.17.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.17.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.17.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.17.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.17.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.17.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.17.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.17.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.18.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.18.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.18.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.18.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.18.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.18.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.18.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.18.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.18.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.18.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.18.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.18.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.19.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.19.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.19.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.19.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.19.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.19.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.19.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.19.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.19.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.19.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.19.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.19.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.20.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.20.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.20.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.20.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.20.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.20.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.20.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.20.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.20.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.20.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.20.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.20.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.21.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.21.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.21.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.21.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.21.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.21.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.21.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.21.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.21.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.21.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.21.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.21.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.22.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.22.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.22.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.22.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.22.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.22.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.22.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.22.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.22.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.22.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.22.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.22.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.23.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.23.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.23.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.23.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.23.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.23.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.23.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.23.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.23.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.23.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.23.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.23.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.24.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.24.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.24.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.24.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.24.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.24.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.24.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.24.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.24.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.24.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.24.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.24.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.25.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.25.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.25.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.25.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.25.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.25.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.25.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.25.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.25.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.25.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.25.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.25.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.26.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.26.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.26.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.26.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.26.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.26.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.26.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.26.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.26.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.26.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.26.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block3.26.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm3.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm3.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm3.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm3.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm3.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm3.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed4.norm.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed4.norm.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed4.norm.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed4.norm.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed4.norm.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.patch_embed4.norm.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.0.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.0.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.0.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.0.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.0.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.0.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.0.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.0.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.0.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.0.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.0.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.0.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.1.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.1.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.1.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.1.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.1.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.1.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.1.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.1.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.1.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.1.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.1.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.1.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.2.norm1.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.2.norm1.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.2.norm1.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.2.norm1.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.2.norm1.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.2.norm1.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.2.norm2.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.2.norm2.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.2.norm2.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.2.norm2.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.2.norm2.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.block4.2.norm2.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm4.weight:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm4.weight:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm4.weight:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm4.bias:lr=6e-05
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm4.bias:weight_decay=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- backbone.norm4.bias:decay_mult=0.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.conv_seg.weight:lr=0.0006000000000000001
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.conv_seg.weight:weight_decay=0.01
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.conv_seg.weight:lr_mult=10.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.conv_seg.bias:lr=0.0006000000000000001
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.conv_seg.bias:weight_decay=0.01
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.conv_seg.bias:lr_mult=10.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.squeeze.conv.weight:lr=0.0006000000000000001
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.squeeze.conv.weight:weight_decay=0.01
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.squeeze.conv.weight:lr_mult=10.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.squeeze.gn.weight:lr=0.0006000000000000001
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.squeeze.gn.weight:weight_decay=0.01
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.squeeze.gn.weight:lr_mult=10.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.squeeze.gn.bias:lr=0.0006000000000000001
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.squeeze.gn.bias:weight_decay=0.01
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.squeeze.gn.bias:lr_mult=10.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.hamburger.ham_in.conv.weight:lr=0.0006000000000000001
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.hamburger.ham_in.conv.weight:weight_decay=0.01
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.hamburger.ham_in.conv.weight:lr_mult=10.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.hamburger.ham_in.conv.bias:lr=0.0006000000000000001
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.hamburger.ham_in.conv.bias:weight_decay=0.01
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.hamburger.ham_in.conv.bias:lr_mult=10.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.hamburger.ham_out.conv.weight:lr=0.0006000000000000001
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.hamburger.ham_out.conv.weight:weight_decay=0.01
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.hamburger.ham_out.conv.weight:lr_mult=10.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.hamburger.ham_out.gn.weight:lr=0.0006000000000000001
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.hamburger.ham_out.gn.weight:weight_decay=0.01
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.hamburger.ham_out.gn.weight:lr_mult=10.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.hamburger.ham_out.gn.bias:lr=0.0006000000000000001
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.hamburger.ham_out.gn.bias:weight_decay=0.01
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.hamburger.ham_out.gn.bias:lr_mult=10.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.align.conv.weight:lr=0.0006000000000000001
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.align.conv.weight:weight_decay=0.01
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.align.conv.weight:lr_mult=10.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.align.gn.weight:lr=0.0006000000000000001
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.align.gn.weight:weight_decay=0.01
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.align.gn.weight:lr_mult=10.0
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.align.gn.bias:lr=0.0006000000000000001
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.align.gn.bias:weight_decay=0.01
+09/29 23:31:41 - mmengine - INFO - paramwise_options -- decode_head.align.gn.bias:lr_mult=10.0
+09/29 23:31:42 - mmengine - WARNING - The prefix is not set in metric class IoUMetric.
+init cfg {'type': 'Pretrained', 'checkpoint': 'https://download.openmmlab.com/mmsegmentation/v0.5/pretrain/segnext/mscan_l_20230227-cef260d4.pth'}
+09/29 23:31:42 - mmengine - INFO - load model from: https://download.openmmlab.com/mmsegmentation/v0.5/pretrain/segnext/mscan_l_20230227-cef260d4.pth
+09/29 23:31:42 - mmengine - INFO - Loads checkpoint by http backend from path: https://download.openmmlab.com/mmsegmentation/v0.5/pretrain/segnext/mscan_l_20230227-cef260d4.pth
+09/29 23:31:44 - mmengine - WARNING - The model and loaded state dict do not match exactly
+
+unexpected key in source state_dict: head.weight, head.bias
+
+09/29 23:31:45 - mmengine - WARNING - "FileClient" will be deprecated in future. Please use io functions in https://mmengine.readthedocs.io/en/latest/api/fileio.html#file-io
+09/29 23:31:45 - mmengine - WARNING - "HardDiskBackend" is the alias of "LocalBackend" and the former will be deprecated in future.
+09/29 23:31:45 - mmengine - INFO - Checkpoints will be saved to /scratch/segmentation_benchmark/mmseg_work_dir/AR_segnext_l-resized_seed_320K.

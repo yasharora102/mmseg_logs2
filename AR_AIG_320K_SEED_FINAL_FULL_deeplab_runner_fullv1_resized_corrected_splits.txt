@@ -1,0 +1,469 @@
+09/29 23:31:28 - mmengine - INFO - 
+------------------------------------------------------------
+System environment:
+    sys.platform: linux
+    Python: 3.9.23 (main, Jun  5 2025, 13:40:20) [GCC 11.2.0]
+    CUDA available: True
+    MUSA available: False
+    numpy_random_seed: 268722126
+    GPU 0: NVIDIA GeForce RTX 2080 Ti
+    CUDA_HOME: /opt/cuda-12.1/
+    NVCC: Cuda compilation tools, release 12.1, V12.1.66
+    GCC: gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+    PyTorch: 2.1.2
+    PyTorch compiling details: PyTorch built with:
+  - GCC 9.3
+  - C++ Version: 201703
+  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v3.1.1 (Git Hash 64f6bcbcbab628e96f33a62c3e975f8535a7bde4)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 11.8
+  - NVCC architecture flags: -gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86;-gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_90,code=sm_90;-gencode;arch=compute_37,code=compute_37
+  - CuDNN 8.7
+  - Magma 2.6.1
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.8, CUDNN_VERSION=8.7.0, CXX_COMPILER=/opt/rh/devtoolset-9/root/usr/bin/c++, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -fabi-version=11 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=old-style-cast -Wno-invalid-partial-specialization -Wno-unused-private-field -Wno-aligned-allocation-unavailable -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Werror=cast-function-type -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_DISABLE_GPU_ASSERTS=ON, TORCH_VERSION=2.1.2, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, 
+
+    TorchVision: 0.16.2
+    OpenCV: 4.11.0
+    MMEngine: 0.10.7
+
+Runtime environment:
+    cudnn_benchmark: True
+    mp_cfg: {'mp_start_method': 'fork', 'opencv_num_threads': 0}
+    dist_cfg: {'backend': 'nccl'}
+    seed: 268722126
+    Distributed launcher: none
+    Distributed training: False
+    GPU number: 1
+------------------------------------------------------------
+
+09/29 23:31:28 - mmengine - INFO - Config:
+crop_size = (
+    512,
+    1024,
+)
+data_preprocessor = dict(
+    bgr_to_rgb=True,
+    mean=[
+        123.675,
+        116.28,
+        103.53,
+    ],
+    pad_val=0,
+    seg_pad_val=255,
+    size=(
+        512,
+        1024,
+    ),
+    std=[
+        58.395,
+        57.12,
+        57.375,
+    ],
+    type='SegDataPreProcessor')
+data_root = '/scratch/segmentation_benchmark/food_FINAL_resized/'
+dataset_type = 'YourDataset_BIG'
+default_hooks = dict(
+    checkpoint=dict(
+        by_epoch=False,
+        interval=40000,
+        save_best='mIoU',
+        type='CheckpointHook'),
+    logger=dict(interval=50, log_metric_by_epoch=False, type='LoggerHook'),
+    param_scheduler=dict(type='ParamSchedulerHook'),
+    sampler_seed=dict(type='DistSamplerSeedHook'),
+    timer=dict(type='IterTimerHook'),
+    visualization=dict(type='SegVisualizationHook'))
+default_scope = 'mmseg'
+env_cfg = dict(
+    cudnn_benchmark=True,
+    dist_cfg=dict(backend='nccl'),
+    mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0))
+img_ratios = [
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+]
+img_suffix = '.jpg'
+launcher = 'none'
+load_from = None
+log_level = 'INFO'
+log_processor = dict(by_epoch=False)
+model = dict(
+    auxiliary_head=dict(
+        align_corners=False,
+        channels=256,
+        concat_input=False,
+        dropout_ratio=0.1,
+        in_channels=1024,
+        in_index=2,
+        loss_decode=dict(
+            loss_weight=0.4, type='CrossEntropyLoss', use_sigmoid=False),
+        norm_cfg=dict(requires_grad=True, type='SyncBN'),
+        num_classes=49,
+        num_convs=1,
+        type='FCNHead'),
+    backbone=dict(
+        contract_dilation=True,
+        depth=50,
+        dilations=(
+            1,
+            1,
+            2,
+            4,
+        ),
+        norm_cfg=dict(requires_grad=True, type='SyncBN'),
+        norm_eval=False,
+        num_stages=4,
+        out_indices=(
+            0,
+            1,
+            2,
+            3,
+        ),
+        strides=(
+            1,
+            2,
+            1,
+            1,
+        ),
+        style='pytorch',
+        type='ResNetV1c'),
+    data_preprocessor=dict(
+        bgr_to_rgb=True,
+        mean=[
+            123.675,
+            116.28,
+            103.53,
+        ],
+        pad_val=0,
+        seg_pad_val=255,
+        size=(
+            512,
+            1024,
+        ),
+        std=[
+            58.395,
+            57.12,
+            57.375,
+        ],
+        type='SegDataPreProcessor'),
+    decode_head=dict(
+        align_corners=False,
+        c1_channels=48,
+        c1_in_channels=256,
+        channels=512,
+        dilations=(
+            1,
+            12,
+            24,
+            36,
+        ),
+        dropout_ratio=0.1,
+        in_channels=2048,
+        in_index=3,
+        loss_decode=dict(
+            loss_weight=1.0, type='CrossEntropyLoss', use_sigmoid=False),
+        norm_cfg=dict(requires_grad=True, type='SyncBN'),
+        num_classes=49,
+        type='DepthwiseSeparableASPPHead'),
+    pretrained='open-mmlab://resnet50_v1c',
+    test_cfg=dict(mode='whole'),
+    train_cfg=dict(),
+    type='EncoderDecoder')
+norm_cfg = dict(requires_grad=True, type='SyncBN')
+optim_wrapper = dict(
+    clip_grad=None,
+    optimizer=dict(lr=0.01, momentum=0.9, type='SGD', weight_decay=0.0005),
+    type='OptimWrapper')
+optimizer = dict(lr=0.01, momentum=0.9, type='SGD', weight_decay=0.0005)
+param_scheduler = [
+    dict(
+        begin=0,
+        by_epoch=False,
+        end=320000,
+        eta_min=0.0001,
+        power=0.9,
+        type='PolyLR'),
+]
+randomness = dict(seed=268722126)
+resume = False
+seg_map_suffix = '.png'
+test_cfg = dict(type='TestLoop')
+test_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        data_prefix=dict(img_path='test/images', seg_map_path='test/masks'),
+        data_root='/scratch/segmentation_benchmark/food_FINAL_resized/',
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(keep_ratio=True, scale=(
+                2048,
+                1024,
+            ), type='Resize'),
+            dict(type='LoadAnnotations'),
+            dict(type='PackSegInputs'),
+        ],
+        type='YourDataset_BIG'),
+    num_workers=8,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+test_evaluator = dict(
+    classwise=True, iou_metrics=[
+        'mIoU',
+    ], type='IoUNanAbsent')
+test_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(keep_ratio=True, scale=(
+        2048,
+        1024,
+    ), type='Resize'),
+    dict(type='LoadAnnotations'),
+    dict(type='PackSegInputs'),
+]
+train_cfg = dict(
+    max_iters=320000, type='IterBasedTrainLoop', val_interval=40000)
+train_dataloader = dict(
+    batch_size=2,
+    dataset=dict(
+        data_prefix=dict(img_path='train/images', seg_map_path='train/masks'),
+        data_root='/scratch/segmentation_benchmark/food_FINAL_resized/',
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(type='LoadAnnotations'),
+            dict(
+                keep_ratio=True,
+                ratio_range=(
+                    0.5,
+                    2.0,
+                ),
+                scale=(
+                    2048,
+                    1024,
+                ),
+                type='RandomResize'),
+            dict(
+                cat_max_ratio=0.75, crop_size=(
+                    512,
+                    1024,
+                ), type='RandomCrop'),
+            dict(prob=0.5, type='RandomFlip'),
+            dict(type='PhotoMetricDistortion'),
+            dict(type='PackSegInputs'),
+        ],
+        type='YourDataset_BIG'),
+    num_workers=2,
+    persistent_workers=True,
+    sampler=dict(shuffle=True, type='InfiniteSampler'))
+train_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(type='LoadAnnotations'),
+    dict(
+        keep_ratio=True,
+        ratio_range=(
+            0.5,
+            2.0,
+        ),
+        scale=(
+            2048,
+            1024,
+        ),
+        type='RandomResize'),
+    dict(cat_max_ratio=0.75, crop_size=(
+        512,
+        1024,
+    ), type='RandomCrop'),
+    dict(prob=0.5, type='RandomFlip'),
+    dict(type='PhotoMetricDistortion'),
+    dict(type='PackSegInputs'),
+]
+tta_model = dict(type='SegTTAModel')
+tta_pipeline = [
+    dict(backend_args=None, type='LoadImageFromFile'),
+    dict(
+        transforms=[
+            [
+                dict(keep_ratio=True, scale_factor=0.5, type='Resize'),
+                dict(keep_ratio=True, scale_factor=0.75, type='Resize'),
+                dict(keep_ratio=True, scale_factor=1.0, type='Resize'),
+                dict(keep_ratio=True, scale_factor=1.25, type='Resize'),
+                dict(keep_ratio=True, scale_factor=1.5, type='Resize'),
+                dict(keep_ratio=True, scale_factor=1.75, type='Resize'),
+            ],
+            [
+                dict(direction='horizontal', prob=0.0, type='RandomFlip'),
+                dict(direction='horizontal', prob=1.0, type='RandomFlip'),
+            ],
+            [
+                dict(type='LoadAnnotations'),
+            ],
+            [
+                dict(type='PackSegInputs'),
+            ],
+        ],
+        type='TestTimeAug'),
+]
+val_cfg = dict(type='ValLoop')
+val_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        data_prefix=dict(img_path='test/images', seg_map_path='test/masks'),
+        data_root='/scratch/segmentation_benchmark/food_FINAL_resized/',
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(keep_ratio=True, scale=(
+                2048,
+                1024,
+            ), type='Resize'),
+            dict(type='LoadAnnotations'),
+            dict(type='PackSegInputs'),
+        ],
+        type='YourDataset_BIG'),
+    num_workers=8,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+val_evaluator = dict(
+    iou_metrics=[
+        'mIoU',
+    ], type='IoUMetric')
+vis_backends = [
+    dict(type='LocalVisBackend'),
+]
+visualizer = dict(
+    name='visualizer',
+    type='SegLocalVisualizer',
+    vis_backends=[
+        dict(type='LocalVisBackend'),
+    ])
+work_dir = '/scratch/segmentation_benmark/mmseg_work_dir/AR_deeplabv3p_80k_big_RESIZED_fullv1_seed_320K'
+
+/home2/yasharora120/segmentation_benchmark/mmsegmentation/mmseg/models/backbones/resnet.py:431: UserWarning: DeprecationWarning: pretrained is a deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is a deprecated, '
+/home2/yasharora120/segmentation_benchmark/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:250: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+09/29 23:31:35 - mmengine - INFO - Distributed training is not used, all SyncBatchNorm (SyncBN) layers in the model will be automatically reverted to BatchNormXd layers if they are used.
+/home2/yasharora120/segmentation_benchmark/mmsegmentation/mmseg/engine/hooks/visualization_hook.py:60: UserWarning: The draw is False, it means that the hook for visualization will not take effect. The results will NOT be visualized or stored.
+  warnings.warn('The draw is False, it means that the '
+09/29 23:31:35 - mmengine - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+before_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DistSamplerSeedHook                
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) IterTimerHook                      
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_val_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_val_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) SegVisualizationHook               
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_val_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_test_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_test_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_test_iter:
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) SegVisualizationHook               
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_run:
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+09/29 23:31:36 - mmengine - WARNING - The prefix is not set in metric class IoUMetric.
+09/29 23:31:37 - mmengine - INFO - load model from: open-mmlab://resnet50_v1c
+09/29 23:31:37 - mmengine - INFO - Loads checkpoint by openmmlab backend from path: open-mmlab://resnet50_v1c
+09/29 23:31:37 - mmengine - WARNING - The model and loaded state dict do not match exactly
+
+unexpected key in source state_dict: fc.weight, fc.bias
+
+09/29 23:31:38 - mmengine - WARNING - "FileClient" will be deprecated in future. Please use io functions in https://mmengine.readthedocs.io/en/latest/api/fileio.html#file-io
+09/29 23:31:38 - mmengine - WARNING - "HardDiskBackend" is the alias of "LocalBackend" and the former will be deprecated in future.
+09/29 23:31:38 - mmengine - INFO - Checkpoints will be saved to /scratch/segmentation_benmark/mmseg_work_dir/AR_deeplabv3p_80k_big_RESIZED_fullv1_seed_320K.
+09/29 23:32:19 - mmengine - INFO - Iter(train) [    50/320000]  lr: 9.9986e-03  eta: 2 days, 23:51:32  time: 0.5582  data_time: 0.0052  memory: 10283  loss: 2.1787  decode.loss_ce: 1.5360  decode.acc_seg: 70.3133  aux.loss_ce: 0.6427  aux.acc_seg: 70.0566
+09/29 23:32:47 - mmengine - INFO - Iter(train) [   100/320000]  lr: 9.9972e-03  eta: 2 days, 12:51:16  time: 0.5616  data_time: 0.0052  memory: 7687  loss: 2.3371  decode.loss_ce: 1.6698  decode.acc_seg: 58.5997  aux.loss_ce: 0.6673  aux.acc_seg: 59.6765
+09/29 23:33:15 - mmengine - INFO - Iter(train) [   150/320000]  lr: 9.9959e-03  eta: 2 days, 9:14:25  time: 0.5642  data_time: 0.0051  memory: 7687  loss: 2.4303  decode.loss_ce: 1.7306  decode.acc_seg: 59.4761  aux.loss_ce: 0.6997  aux.acc_seg: 59.5767
+09/29 23:33:43 - mmengine - INFO - Iter(train) [   200/320000]  lr: 9.9945e-03  eta: 2 days, 7:29:16  time: 0.5670  data_time: 0.0050  memory: 7687  loss: 2.3766  decode.loss_ce: 1.7065  decode.acc_seg: 57.5048  aux.loss_ce: 0.6702  aux.acc_seg: 59.9623
+09/29 23:34:12 - mmengine - INFO - Iter(train) [   250/320000]  lr: 9.9931e-03  eta: 2 days, 6:26:19  time: 0.5660  data_time: 0.0052  memory: 7687  loss: 2.1588  decode.loss_ce: 1.5374  decode.acc_seg: 64.0273  aux.loss_ce: 0.6214  aux.acc_seg: 63.6365
+09/29 23:34:40 - mmengine - INFO - Iter(train) [   300/320000]  lr: 9.9917e-03  eta: 2 days, 5:45:13  time: 0.5676  data_time: 0.0052  memory: 7687  loss: 1.9484  decode.loss_ce: 1.4001  decode.acc_seg: 50.4425  aux.loss_ce: 0.5483  aux.acc_seg: 45.6969
+09/29 23:35:08 - mmengine - INFO - Iter(train) [   350/320000]  lr: 9.9903e-03  eta: 2 days, 5:16:17  time: 0.5682  data_time: 0.0055  memory: 7687  loss: 2.1750  decode.loss_ce: 1.5355  decode.acc_seg: 40.6423  aux.loss_ce: 0.6395  aux.acc_seg: 40.9288
+09/29 23:35:37 - mmengine - INFO - Iter(train) [   400/320000]  lr: 9.9889e-03  eta: 2 days, 4:54:22  time: 0.5678  data_time: 0.0051  memory: 7687  loss: 2.3844  decode.loss_ce: 1.6829  decode.acc_seg: 43.7855  aux.loss_ce: 0.7015  aux.acc_seg: 48.0000
+09/29 23:35:58 - mmengine - INFO - Exp name: deeplabv3plus_r50-d8_4xb2-80k_cityscapes-512x1024_modified_20250929_233126
+09/29 23:36:05 - mmengine - INFO - Iter(train) [   450/320000]  lr: 9.9875e-03  eta: 2 days, 4:37:03  time: 0.5665  data_time: 0.0049  memory: 7687  loss: 1.9894  decode.loss_ce: 1.4242  decode.acc_seg: 61.9830  aux.loss_ce: 0.5652  aux.acc_seg: 66.9997
+09/29 23:36:34 - mmengine - INFO - Iter(train) [   500/320000]  lr: 9.9861e-03  eta: 2 days, 4:23:00  time: 0.5662  data_time: 0.0049  memory: 7687  loss: 1.5020  decode.loss_ce: 1.0823  decode.acc_seg: 53.1410  aux.loss_ce: 0.4197  aux.acc_seg: 55.3168
+09/29 23:37:02 - mmengine - INFO - Iter(train) [   550/320000]  lr: 9.9847e-03  eta: 2 days, 4:11:09  time: 0.5676  data_time: 0.0050  memory: 7687  loss: 1.8609  decode.loss_ce: 1.3092  decode.acc_seg: 42.0607  aux.loss_ce: 0.5517  aux.acc_seg: 36.6569
+09/29 23:37:30 - mmengine - INFO - Iter(train) [   600/320000]  lr: 9.9833e-03  eta: 2 days, 4:01:42  time: 0.5677  data_time: 0.0051  memory: 7687  loss: 2.2748  decode.loss_ce: 1.6128  decode.acc_seg: 53.5272  aux.loss_ce: 0.6620  aux.acc_seg: 68.5237
+09/29 23:37:59 - mmengine - INFO - Iter(train) [   650/320000]  lr: 9.9819e-03  eta: 2 days, 3:53:34  time: 0.5685  data_time: 0.0052  memory: 7687  loss: 1.5259  decode.loss_ce: 1.0606  decode.acc_seg: 72.9728  aux.loss_ce: 0.4653  aux.acc_seg: 73.0519
+09/29 23:38:27 - mmengine - INFO - Iter(train) [   700/320000]  lr: 9.9805e-03  eta: 2 days, 3:46:19  time: 0.5670  data_time: 0.0051  memory: 7687  loss: 1.7106  decode.loss_ce: 1.2006  decode.acc_seg: 70.7149  aux.loss_ce: 0.5100  aux.acc_seg: 68.9932
+09/29 23:38:55 - mmengine - INFO - Iter(train) [   750/320000]  lr: 9.9791e-03  eta: 2 days, 3:40:09  time: 0.5676  data_time: 0.0052  memory: 7687  loss: 1.7687  decode.loss_ce: 1.2483  decode.acc_seg: 67.5501  aux.loss_ce: 0.5204  aux.acc_seg: 66.0267
+09/29 23:39:24 - mmengine - INFO - Iter(train) [   800/320000]  lr: 9.9777e-03  eta: 2 days, 3:34:46  time: 0.5681  data_time: 0.0051  memory: 7687  loss: 1.8306  decode.loss_ce: 1.2978  decode.acc_seg: 75.7235  aux.loss_ce: 0.5327  aux.acc_seg: 72.0448
+09/29 23:39:52 - mmengine - INFO - Iter(train) [   850/320000]  lr: 9.9764e-03  eta: 2 days, 3:29:55  time: 0.5675  data_time: 0.0050  memory: 7687  loss: 1.5378  decode.loss_ce: 1.0951  decode.acc_seg: 62.9975  aux.loss_ce: 0.4427  aux.acc_seg: 63.7155
+09/29 23:40:21 - mmengine - INFO - Iter(train) [   900/320000]  lr: 9.9750e-03  eta: 2 days, 3:25:45  time: 0.5690  data_time: 0.0058  memory: 7687  loss: 2.1375  decode.loss_ce: 1.5085  decode.acc_seg: 61.6684  aux.loss_ce: 0.6290  aux.acc_seg: 66.2363
+09/29 23:40:49 - mmengine - INFO - Iter(train) [   950/320000]  lr: 9.9736e-03  eta: 2 days, 3:21:53  time: 0.5682  data_time: 0.0054  memory: 7687  loss: 2.1162  decode.loss_ce: 1.4978  decode.acc_seg: 75.0770  aux.loss_ce: 0.6183  aux.acc_seg: 73.0963
+09/29 23:41:17 - mmengine - INFO - Exp name: deeplabv3plus_r50-d8_4xb2-80k_cityscapes-512x1024_modified_20250929_233126
+09/29 23:41:17 - mmengine - INFO - Iter(train) [  1000/320000]  lr: 9.9722e-03  eta: 2 days, 3:18:19  time: 0.5674  data_time: 0.0052  memory: 7687  loss: 1.8641  decode.loss_ce: 1.3259  decode.acc_seg: 73.1270  aux.loss_ce: 0.5383  aux.acc_seg: 70.8521
+09/29 23:41:46 - mmengine - INFO - Iter(train) [  1050/320000]  lr: 9.9708e-03  eta: 2 days, 3:15:03  time: 0.5685  data_time: 0.0052  memory: 7687  loss: 1.4937  decode.loss_ce: 1.0516  decode.acc_seg: 83.4683  aux.loss_ce: 0.4421  aux.acc_seg: 80.4909
