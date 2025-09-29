@@ -1031,3 +1031,4 @@ unexpected key in source state_dict: head.weight, head.bias
 09/30 02:02:44 - mmengine - INFO - Iter(train) [   600/320000]  base_lr: 1.1984e-05 lr: 1.1984e-05  eta: 55 days, 19:37:15  time: 15.0442  data_time: 0.0183  loss: 1.4064  decode.loss_ce: 1.4064  decode.acc_seg: 68.5844
 09/30 02:15:17 - mmengine - INFO - Iter(train) [   650/320000]  base_lr: 1.2984e-05 lr: 1.2984e-05  eta: 55 days, 19:13:09  time: 15.0804  data_time: 0.0254  loss: 0.8950  decode.loss_ce: 0.8950  decode.acc_seg: 76.4260
 09/30 02:27:51 - mmengine - INFO - Iter(train) [   700/320000]  base_lr: 1.3985e-05 lr: 1.3985e-05  eta: 55 days, 18:53:18  time: 15.1274  data_time: 0.0497  loss: 1.0376  decode.loss_ce: 1.0376  decode.acc_seg: 74.0022
+09/30 02:40:26 - mmengine - INFO - Iter(train) [   750/320000]  base_lr: 1.4985e-05 lr: 1.4985e-05  eta: 55 days, 18:38:07  time: 15.1097  data_time: 0.0408  loss: 1.0381  decode.loss_ce: 1.0381  decode.acc_seg: 68.3247
