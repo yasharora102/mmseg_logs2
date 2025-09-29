@@ -1014,3 +1014,4 @@ after_run:
 09/29 23:31:42 - mmengine - WARNING - "HardDiskBackend" is the alias of "LocalBackend" and the former will be deprecated in future.
 09/29 23:31:42 - mmengine - INFO - Checkpoints will be saved to /scratch/segmentation_benchmark/mmseg_work_dir/AR_segformer-mitb3-FUll-resized_seed_320K.
 09/29 23:52:32 - mmengine - INFO - Iter(train) [    50/320000]  base_lr: 9.8039e-07 lr: 9.8039e-07  eta: 92 days, 13:21:00  time: 24.9195  data_time: 0.0144  loss: 3.5003  decode.loss_ce: 3.5003  decode.acc_seg: 10.2848
+09/30 00:13:17 - mmengine - INFO - Iter(train) [   100/320000]  base_lr: 1.9807e-06 lr: 1.9807e-06  eta: 92 days, 9:31:55  time: 24.9589  data_time: 0.0140  loss: 3.6700  decode.loss_ce: 3.6700  decode.acc_seg: 36.0767
