@@ -1031,3 +1031,4 @@ after_run:
 09/30 04:45:39 - mmengine - INFO - Iter(train) [   750/320000]  base_lr: 1.4985e-05 lr: 1.4985e-05  eta: 92 days, 19:20:53  time: 25.2075  data_time: 0.0135  loss: 1.1683  decode.loss_ce: 1.1683  decode.acc_seg: 71.9040
 09/30 05:06:40 - mmengine - INFO - Iter(train) [   800/320000]  base_lr: 1.5985e-05 lr: 1.5985e-05  eta: 92 days, 19:32:56  time: 25.2338  data_time: 0.0147  loss: 1.1529  decode.loss_ce: 1.1529  decode.acc_seg: 79.5985
 09/30 05:27:41 - mmengine - INFO - Iter(train) [   850/320000]  base_lr: 1.6986e-05 lr: 1.6986e-05  eta: 92 days, 19:44:11  time: 25.1727  data_time: 0.0149  loss: 0.9869  decode.loss_ce: 0.9869  decode.acc_seg: 69.1696
+09/30 05:48:42 - mmengine - INFO - Iter(train) [   900/320000]  base_lr: 1.7986e-05 lr: 1.7986e-05  eta: 92 days, 19:49:18  time: 25.2209  data_time: 0.0143  loss: 1.0554  decode.loss_ce: 1.0554  decode.acc_seg: 74.3902
