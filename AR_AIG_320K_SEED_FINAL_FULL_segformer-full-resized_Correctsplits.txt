@@ -1008,21 +1008,50 @@ after_run:
 09/30 09:02:55 - mmengine - INFO - paramwise_options -- decode_head.convs.3.bn.bias:lr=0.0006000000000000001
 09/30 09:02:55 - mmengine - INFO - paramwise_options -- decode_head.convs.3.bn.bias:weight_decay=0.01
 09/30 09:02:55 - mmengine - INFO - paramwise_options -- decode_head.convs.3.bn.bias:lr_mult=10.0
-09/30 09:02:55 - mmengine - INFO - paramwise_options -- decode_head.fusion_conv.conv.weight:lr=0.0006000000000000001
-09/30 09:02:55 - mmengine - INFO - paramwise_options -- decode_head.fusion_conv.conv.weight:weight_decay=0.01
 09/30 09:02:55 - mmengine - INFO - paramwise_options -- decode_head.fusion_conv.conv.weight:lr_mult=10.0
-09/30 09:02:55 - mmengine - INFO - paramwise_options -- decode_head.fusion_conv.bn.weight:lr=0.0006000000000000001
-09/30 09:02:55 - mmengine - INFO - paramwise_options -- decode_head.fusion_conv.bn.weight:weight_decay=0.01
-09/30 09:02:55 - mmengine - INFO - paramwise_options -- decode_head.fusion_conv.bn.weight:lr_mult=10.0
-09/30 09:02:55 - mmengine - INFO - paramwise_options -- decode_head.fusion_conv.bn.bias:lr=0.0006000000000000001
-09/30 09:02:55 - mmengine - INFO - paramwise_options -- decode_head.fusion_conv.bn.bias:weight_decay=0.01
-09/30 09:02:55 - mmengine - INFO - paramwise_options -- decode_head.fusion_conv.bn.bias:lr_mult=10.0
-09/30 09:02:56 - mmengine - WARNING - The prefix is not set in metric class IoUMetric.
-09/30 09:02:56 - mmengine - INFO - load model from: https://download.openmmlab.com/mmsegmentation/v0.5/pretrain/segformer/mit_b3_20220624-13b1141c.pth
-09/30 09:02:56 - mmengine - INFO - Loads checkpoint by http backend from path: https://download.openmmlab.com/mmsegmentation/v0.5/pretrain/segformer/mit_b3_20220624-13b1141c.pth
-09/30 09:03:05 - mmengine - WARNING - "FileClient" will be deprecated in future. Please use io functions in https://mmengine.readthedocs.io/en/latest/api/fileio.html#file-io
-09/30 09:03:05 - mmengine - WARNING - "HardDiskBackend" is the alias of "LocalBackend" and the former will be deprecated in future.
-09/30 09:03:05 - mmengine - INFO - Checkpoints will be saved to /scratch/segmentation_benchmark/mmseg_work_dir/AR_segformer-mitb3-FUll-resized_seed_320K.
-09/30 09:03:38 - mmengine - INFO - Iter(train) [    50/320000]  base_lr: 9.8039e-07 lr: 9.8039e-07  eta: 2 days, 11:20:34  time: 0.4318  data_time: 0.0101  memory: 10276  loss: 3.5296  decode.loss_ce: 3.5296  decode.acc_seg: 3.8716
-09/30 09:04:00 - mmengine - INFO - Iter(train) [   100/320000]  base_lr: 1.9807e-06 lr: 1.9807e-06  eta: 2 days, 1:00:14  time: 0.4404  data_time: 0.0107  memory: 6770  loss: 3.6924  decode.loss_ce: 3.6924  decode.acc_seg: 17.4614
-09/30 09:04:22 - mmengine - INFO - Iter(train) [   150/320000]  base_lr: 2.9811e-06 lr: 2.9811e-06  eta: 1 day, 21:35:56  time: 0.4372  data_time: 0.0099  memory: 6770  loss: 3.4588  decode.loss_ce: 3.4588  decode.acc_seg: 56.7060
+09/29 23:31:40 - mmengine - INFO - paramwise_options -- decode_head.fusion_conv.bn.weight:lr=0.0006000000000000001
+09/29 23:31:40 - mmengine - INFO - paramwise_options -- decode_head.fusion_conv.bn.weight:weight_decay=0.01
+09/29 23:31:40 - mmengine - INFO - paramwise_options -- decode_head.fusion_conv.bn.weight:lr_mult=10.0
+09/29 23:31:40 - mmengine - INFO - paramwise_options -- decode_head.fusion_conv.bn.bias:lr=0.0006000000000000001
+09/29 23:31:40 - mmengine - INFO - paramwise_options -- decode_head.fusion_conv.bn.bias:weight_decay=0.01
+09/29 23:31:40 - mmengine - INFO - paramwise_options -- decode_head.fusion_conv.bn.bias:lr_mult=10.0
+09/29 23:31:41 - mmengine - WARNING - The prefix is not set in metric class IoUMetric.
+09/29 23:31:41 - mmengine - INFO - load model from: https://download.openmmlab.com/mmsegmentation/v0.5/pretrain/segformer/mit_b3_20220624-13b1141c.pth
+09/29 23:31:41 - mmengine - INFO - Loads checkpoint by http backend from path: https://download.openmmlab.com/mmsegmentation/v0.5/pretrain/segformer/mit_b3_20220624-13b1141c.pth
+09/29 23:31:42 - mmengine - WARNING - "FileClient" will be deprecated in future. Please use io functions in https://mmengine.readthedocs.io/en/latest/api/fileio.html#file-io
+09/29 23:31:42 - mmengine - WARNING - "HardDiskBackend" is the alias of "LocalBackend" and the former will be deprecated in future.
+09/29 23:31:42 - mmengine - INFO - Checkpoints will be saved to /scratch/segmentation_benchmark/mmseg_work_dir/AR_segformer-mitb3-FUll-resized_seed_320K.
+09/29 23:52:32 - mmengine - INFO - Iter(train) [    50/320000]  base_lr: 9.8039e-07 lr: 9.8039e-07  eta: 92 days, 13:21:00  time: 24.9195  data_time: 0.0144  loss: 3.5003  decode.loss_ce: 3.5003  decode.acc_seg: 10.2848
+09/30 00:13:17 - mmengine - INFO - Iter(train) [   100/320000]  base_lr: 1.9807e-06 lr: 1.9807e-06  eta: 92 days, 9:31:55  time: 24.9589  data_time: 0.0140  loss: 3.6700  decode.loss_ce: 3.6700  decode.acc_seg: 36.0767
+09/30 00:34:05 - mmengine - INFO - Iter(train) [   150/320000]  base_lr: 2.9811e-06 lr: 2.9811e-06  eta: 92 days, 8:58:42  time: 24.9755  data_time: 0.0140  loss: 3.4206  decode.loss_ce: 3.4206  decode.acc_seg: 58.6322
+09/30 00:54:55 - mmengine - INFO - Iter(train) [   200/320000]  base_lr: 3.9814e-06 lr: 3.9814e-06  eta: 92 days, 9:39:18  time: 25.0178  data_time: 0.0142  loss: 3.0645  decode.loss_ce: 3.0645  decode.acc_seg: 66.4159
+09/30 01:15:46 - mmengine - INFO - Iter(train) [   250/320000]  base_lr: 4.9817e-06 lr: 4.9817e-06  eta: 92 days, 10:24:17  time: 25.1416  data_time: 0.0141  loss: 2.7189  decode.loss_ce: 2.7189  decode.acc_seg: 64.8022
+09/30 01:36:42 - mmengine - INFO - Iter(train) [   300/320000]  base_lr: 5.9820e-06 lr: 5.9820e-06  eta: 92 days, 12:20:08  time: 25.1302  data_time: 0.0148  loss: 2.1064  decode.loss_ce: 2.1064  decode.acc_seg: 54.3418
+09/30 01:57:42 - mmengine - INFO - Iter(train) [   350/320000]  base_lr: 6.9824e-06 lr: 6.9824e-06  eta: 92 days, 14:19:52  time: 25.1685  data_time: 0.0144  loss: 2.0676  decode.loss_ce: 2.0676  decode.acc_seg: 42.0521
+09/30 02:18:41 - mmengine - INFO - Iter(train) [   400/320000]  base_lr: 7.9827e-06 lr: 7.9827e-06  eta: 92 days, 15:47:53  time: 25.2286  data_time: 0.0147  loss: 1.8650  decode.loss_ce: 1.8650  decode.acc_seg: 47.6279
+09/30 02:34:13 - mmengine - INFO - Exp name: segformer_mit-b3_8xb1-160k_mydataset-512x1024_20250929_233134
+09/30 02:39:40 - mmengine - INFO - Iter(train) [   450/320000]  base_lr: 8.9830e-06 lr: 8.9830e-06  eta: 92 days, 16:44:41  time: 25.2048  data_time: 0.0147  loss: 1.5868  decode.loss_ce: 1.5868  decode.acc_seg: 09/30 09:06:28 - mmengine - INFO - Exp name: segformer_mit-b3_8xb1-160k_mydataset-512x1024_20250930_090242
+09/30 09:06:33 - mmengine - INFO - Iter(train) [   450/320000]  base_lr: 8.9830e-06 lr: 8.9830e-06  eta: 1 day, 17:07:55  time: 0.4381  data_time: 0.0097  memory: 6770  loss: 1.5944  decode.loss_ce: 1.5944  decode.acc_seg: 77.5129
+09/30 09:06:55 - mmengine - INFO - Iter(train) [   500/320000]  base_lr: 9.9834e-06 lr: 9.9834e-06  eta: 1 day, 16:54:08  time: 0.4380  data_time: 0.0096  memory: 6770  loss: 1.0390  decode.loss_ce: 1.0390  decode.acc_seg: 56.3627
+09/30 09:07:17 - mmengine - INFO - Iter(train) [   550/320000]  base_lr: 1.0984e-05 lr: 1.0984e-05  eta: 1 day, 16:42:40  time: 0.4378  data_time: 0.0096  memory: 6770  loss: 1.3052  decode.loss_ce: 1.3052  decode.acc_seg: 65.7516
+09/30 09:07:39 - mmengine - INFO - Iter(train) [   600/320000]  base_lr: 1.1984e-05 lr: 1.1984e-05  eta: 1 day, 16:33:14  time: 0.4391  data_time: 0.0098  memory: 6770  loss: 1.5800  decode.loss_ce: 1.5800  decode.acc_seg: 83.4393
+09/30 09:08:01 - mmengine - INFO - Iter(train) [   650/320000]  base_lr: 1.2984e-05 lr: 1.2984e-05  eta: 1 day, 16:25:26  time: 0.4390  data_time: 0.0099  memory: 6770  loss: 1.1302  decode.loss_ce: 1.1302  decode.acc_seg: 81.5863
+09/30 09:08:23 - mmengine - INFO - Iter(train) [   700/320000]  base_lr: 1.3985e-05 lr: 1.3985e-05  eta: 1 day, 16:18:40  time: 0.4393  data_time: 0.0098  memory: 6770  loss: 1.2030  decode.loss_ce: 1.2030  decode.acc_seg: 72.6097
+09/30 09:08:45 - mmengine - INFO - Iter(train) [   750/320000]  base_lr: 1.4985e-05 lr: 1.4985e-05  eta: 1 day, 16:12:47  time: 0.4394  data_time: 0.0098  memory: 6770  loss: 1.1504  decode.loss_ce: 1.1504  decode.acc_seg: 72.4039
+09/30 09:09:07 - mmengine - INFO - Iter(train) [   800/320000]  base_lr: 1.5985e-05 lr: 1.5985e-05  eta: 1 day, 16:07:39  time: 0.4390  data_time: 0.0098  memory: 6770  loss: 1.1360  decode.loss_ce: 1.1360  decode.acc_seg: 80.2839
+09/30 09:09:29 - mmengine - INFO - Iter(train) [   850/320000]  base_lr: 1.6986e-05 lr: 1.6986e-05  eta: 1 day, 16:03:01  time: 0.4381  data_time: 0.0097  memory: 6770  loss: 0.9856  decode.loss_ce: 0.9856  decode.acc_seg: 69.2683
+09/30 09:09:51 - mmengine - INFO - Iter(train) [   900/320000]  base_lr: 1.7986e-05 lr: 1.7986e-05  eta: 1 day, 15:58:55  time: 0.4389  data_time: 0.0101  memory: 6770  loss: 1.0354  decode.loss_ce: 1.0354  decode.acc_seg: 74.1826
+09/30 09:10:13 - mmengine - INFO - Iter(train) [   950/320000]  base_lr: 1.8986e-05 lr: 1.8986e-05  eta: 1 day, 15:55:10  time: 0.4389  data_time: 0.0098  memory: 6770  loss: 1.0684  decode.loss_ce: 1.0684  decode.acc_seg: 85.9612
+09/30 09:10:35 - mmengine - INFO - Exp name: segformer_mit-b3_8xb1-160k_mydataset-512x1024_20250930_090242
+09/30 09:10:35 - mmengine - INFO - Iter(train) [  1000/320000]  base_lr: 1.9987e-05 lr: 1.9987e-05  eta: 1 day, 15:51:41  time: 0.4387  data_time: 0.0100  memory: 6770  loss: 1.0292  decode.loss_ce: 1.0292  decode.acc_seg: 82.5306
+09/30 09:10:57 - mmengine - INFO - Iter(train) [  1050/320000]  base_lr: 2.0987e-05 lr: 2.0987e-05  eta: 1 day, 15:48:28  time: 0.4383  data_time: 0.0098  memory: 6770  loss: 0.7043  decode.loss_ce: 0.7043  decode.acc_seg: 83.5420
+09/30 09:11:19 - mmengine - INFO - Iter(train) [  1100/320000]  base_lr: 2.1987e-05 lr: 2.1987e-05  eta: 1 day, 15:45:31  time: 0.4390  data_time: 0.0099  memory: 6770  loss: 0.7797  decode.loss_ce: 0.7797  decode.acc_seg: 73.2635
+09/30 09:11:41 - mmengine - INFO - Iter(train) [  1150/320000]  base_lr: 2.2988e-05 lr: 2.2988e-05  eta: 1 day, 15:42:52  time: 0.4391  data_time: 0.0099  memory: 6770  loss: 0.9761  decode.loss_ce: 0.9761  decode.acc_seg: 55.9368
+09/30 09:12:02 - mmengine - INFO - Iter(train) [  1200/320000]  base_lr: 2.3988e-05 lr: 2.3988e-05  eta: 1 day, 15:40:23  time: 0.4388  data_time: 0.0098  memory: 6770  loss: 0.8353  decode.loss_ce: 0.8353  decode.acc_seg: 78.0680
+09/30 09:12:24 - mmengine - INFO - Iter(train) [  1250/320000]  base_lr: 2.4988e-05 lr: 2.4988e-05  eta: 1 day, 15:38:04  time: 0.4389  data_time: 0.0098  memory: 6770  loss: 0.7488  decode.loss_ce: 0.7488  decode.acc_seg: 90.1350
+09/30 09:12:46 - mmengine - INFO - Iter(train) [  1300/320000]  base_lr: 2.5989e-05 lr: 2.5989e-05  eta: 1 day, 15:35:55  time: 0.4386  data_time: 0.0098  memory: 6770  loss: 0.8345  decode.loss_ce: 0.8345  decode.acc_seg: 77.5566
+09/30 09:13:08 - mmengine - INFO - Iter(train) [  1350/320000]  base_lr: 2.6989e-05 lr: 2.6989e-05  eta: 1 day, 15:33:55  time: 0.4391  data_time: 0.0098  memory: 6770  loss: 0.7928  decode.loss_ce: 0.7928  decode.acc_seg: 69.0723
+09/30 09:13:30 - mmengine - INFO - Iter(train) [  1400/320000]  base_lr: 2.7989e-05 lr: 2.7989e-05  eta: 1 day, 15:31:58  time: 0.4393  data_time: 0.0098  memory: 6770  loss: 0.9684  decode.loss_ce: 0.9684  decode.acc_seg: 91.2637
+09/30 09:13:52 - mmengine - INFO - Iter(train) [  1450/320000]  base_lr: 2.8990e-05 lr: 2.8990e-05  eta: 1 day, 15:30:11  time: 0.4386  data_time: 0.0098  memory: 6770  loss: 0.6639  decode.loss_ce: 0.6639  decode.acc_seg: 81.0707
+09/30 09:14:14 - mmengine - INFO - Iter(train) [  1500/320000]  base_lr: 2.9990e-05 lr: 2.9990e-05  eta: 1 day, 15:28:33  time: 0.4393  data_time: 0.0098  memory: 6770  loss: 0.7609  decode.loss_ce: 0.7609  decode.acc_seg: 68.3159
+09/30 09:14:36 - mmengine - INFO - Iter(train) [  1550/320000]  base_lr: 3.0990e-05 lr: 3.0990e-05  eta: 1 day, 15:26:58  time: 0.4390  data_time: 0.0097  memory: 6770  loss: 0.7329  decode.loss_ce: 0.7329  decode.acc_seg: 57.9092

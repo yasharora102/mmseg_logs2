@@ -1064,3 +1064,4 @@ unexpected key in source state_dict: head.weight, head.bias
 09/30 08:32:28 - mmengine - INFO - Iter(train) [  2150/320000]  base_lr: 4.2994e-05 lr: 4.2994e-05  eta: 55 days, 12:19:13  time: 15.1039  data_time: 0.0320  loss: 0.5564  decode.loss_ce: 0.5564  decode.acc_seg: 90.7965
 09/30 08:45:03 - mmengine - INFO - Iter(train) [  2200/320000]  base_lr: 4.3995e-05 lr: 4.3995e-05  eta: 55 days, 12:07:38  time: 15.1368  data_time: 0.0180  loss: 0.3820  decode.loss_ce: 0.3820  decode.acc_seg: 97.3653
 09/30 08:57:42 - mmengine - INFO - Iter(train) [  2250/320000]  base_lr: 4.4995e-05 lr: 4.4995e-05  eta: 55 days, 12:04:45  time: 15.1503  data_time: 0.0390  loss: 0.5076  decode.loss_ce: 0.5076  decode.acc_seg: 94.3787
+slurmstepd: error: *** JOB 2505423 ON gnode087 CANCELLED AT 2025-09-30T09:06:23 ***
